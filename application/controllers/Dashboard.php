@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function index() {
+        $data['title'] = 'Dashboard | Padang Invitation';
         // Ambil slug dari session
         $user_slug = $this->session->userdata('user_slug');
         

@@ -9,7 +9,8 @@ class Auth extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('login');
+        $data['title'] = 'Login | Padang Invitation';
+        $this->load->view('login', $data);
     }
 
     public function login() {

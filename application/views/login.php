@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
-</head>
+<?php $this->load->view('partial/header'); ?>
 
 <body class="bg-gray-200 flex items-center justify-center h-screen">
     <div class="bg-white rounded-lg shadow-md w-80">

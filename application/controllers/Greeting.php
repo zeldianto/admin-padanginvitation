@@ -17,14 +17,9 @@ class Greeting extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Kartu Ucapan | Padang Invitation';
         // Load the pagination library
         $this->load->library('pagination');
-
-        // Set pagination configuration
-        $config['base_url'] = base_url('index.php/guestbook/index');
-        $config['total_rows'] = $this->Greeting_model->count_all_greeting();
-        $config['per_page'] = 10;
-        $config['uri_segment'] = 3;
 
         // Custom pagination style
         $config['full_tag_open'] = '<nav class="pagination mt-4 flex justify-center">';
@@ -95,7 +90,11 @@ class Greeting extends CI_Controller
             $this->session->set_flashdata('error', 'Data tidak ditemukan.');
         }
 
-        redirect('greeting/index');
+        // Ambil URL halaman sebelumnya dari referer
+        $previous_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'greeting/index';
+
+        // Redirect ke halaman sebelumnya atau ke index jika referer tidak ditemukan
+        redirect($previous_url);
     }
 
     public function reply()
@@ -112,7 +111,12 @@ class Greeting extends CI_Controller
         $this->Greeting_model->add_reply($id, $message);
 
         $this->session->set_flashdata('success', 'Balasan berhasil dikirim.');
-        redirect('greeting'); // Redirect ke halaman greeting
+        
+        // Ambil URL halaman sebelumnya dari referer
+        $previous_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'greeting/index';
+
+        // Redirect ke halaman sebelumnya atau ke index jika referer tidak ditemukan
+        redirect($previous_url);
     }
 
 }

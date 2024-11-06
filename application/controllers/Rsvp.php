@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Guestbook extends CI_Controller
+class Rsvp extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Guestbook_model');
+        $this->load->model('Rsvp_model');
         $this->load->library('session');
 
         // Redirect ke login jika belum login
@@ -17,7 +17,10 @@ class Guestbook extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Buku Tamu | Padang Invitation';
+        $data['title'] = 'RSVP | Padang Invitation';        
+
+        $user_slug = $this->session->userdata('user_slug');
+        
         // Load the pagination library
         $this->load->library('pagination');
 
@@ -48,8 +51,8 @@ class Guestbook extends CI_Controller
         $config['prev_link'] = 'Sebelumnya';
 
         // Set pagination configuration
-        $config['base_url'] = base_url('index.php/guestbook/index');
-        $config['total_rows'] = $this->Guestbook_model->count_all_guests();
+        $config['base_url'] = base_url('index.php/rsvp/index');
+        $config['total_rows'] = $this->Rsvp_model->count_all_rsvp();
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
 
@@ -63,24 +66,17 @@ class Guestbook extends CI_Controller
         $data['page'] = $page;
 
         // Fetch the guests with limit and offset
-        $data['guests'] = $this->Guestbook_model->get_all_guests($config['per_page'], $page);
+        $data['rsvp'] = $this->Rsvp_model->get_all_rsvp($config['per_page'], $page);
         $data['pagination'] = $this->pagination->create_links();
-
+        
+        // Ambil data summary
+        $data['total_attending_guests'] = $this->Rsvp_model->get_total_attending_guests($user_slug);
+        $data['total_not_attending_guests'] = $this->Rsvp_model->get_total_not_attending_guests($user_slug);
+        $data['total_not_confirm'] = $this->Rsvp_model->get_total_not_confirm($user_slug);
+        // var_dump($data);
         // Load view
-        $this->load->view('guestbook', $data);
+        $this->load->view('rsvp', $data);
     }
 
-    public function add()
-    {
-        // Ambil data dari form
-        $name = $this->input->post('name');
-        $phone = $this->input->post('phone');
-
-        // Tambahkan data tamu
-        $this->Guestbook_model->add_guest($name, $phone);
-
-        // Redirect kembali ke halaman Buku Tamu
-        redirect('guestbook');
-    }
 }
 ?>

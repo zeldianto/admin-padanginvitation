@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/x-icon" href="https://cdn.dazelpro.com/uploads/dazelinv/favico.ico">
-    <title>Padang Invitation | Admin</title>
-    <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
-</head>
+<?php $this->load->view('partial/header'); ?>
 
 <body class="bg-gray-100 max-w-[600px] mx-auto w-full px-4 pb-2">
     <div class="flex justify-start py-4 items-center gap-4">
