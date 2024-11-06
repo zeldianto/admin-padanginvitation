@@ -10,7 +10,7 @@
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 max-w-[600px] mx-auto w-full px-4">
+<body class="bg-gray-100 max-w-[600px] mx-auto w-full px-4 pb-2">
     <div class="flex justify-start py-4 items-center gap-4">
         <div>
             <a href="<?php echo site_url('dashboard'); ?>"
@@ -67,7 +67,7 @@
                             <td class="py-2 px-4 border-b">
                                 <div class="flex gap-2">
                                     <?php
-                                        $url = "https://padanginvitation.com/{$guest->slug}?guest={$guest->id}";
+                                        $url = "http://localhost:8082/{$guest->slug}?guest={$guest->id}";
                                     ?>
                                     <!-- Button open link new tab -->
                                     <button onclick="window.open('<?php echo $url; ?>', '_blank')"

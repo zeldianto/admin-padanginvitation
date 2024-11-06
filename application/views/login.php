@@ -17,7 +17,7 @@
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-center mb-4">Silahkan login</h2>
                 <?php if ($this->session->flashdata('error')): ?>
-                    <p class="text-red-500 text-center"><?php echo $this->session->flashdata('error'); ?></p>
+                    <p class="text-red-500 text-center mb-4 text-sm"><?php echo $this->session->flashdata('error'); ?></p>
                 <?php endif; ?>
                 <form action="<?php echo base_url('index.php/auth/login'); ?>" method="post">
                     <div class="mb-4">

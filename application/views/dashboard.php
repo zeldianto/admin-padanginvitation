@@ -10,7 +10,7 @@
     <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 max-w-[600px] mx-auto w-full px-4">
+<body class="bg-gray-100 max-w-[600px] mx-auto w-full px-4 pb-2">
     <div class="flex justify-between py-4 items-center">
         <div>
             <div>Selamat Datang,</div>
@@ -67,7 +67,7 @@
             <span>Buku Tamu</span>
         </a>
 
-        <a href="<?php echo site_url('guestbook'); ?>"
+        <a href="<?php echo site_url('greeting'); ?>"
             class="bg-green-500 hover:bg-green-600 text-white font-bold py-8 rounded-lg flex flex-col items-center justify-center space-y-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">

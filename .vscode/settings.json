@@ -1,0 +1,15 @@
+{
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "[php]": {
+        "editor.linkedEditing": true
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "php.validate.enable": false,
+    "php.problems.exclude": {
+        "/": [
+            416,
+            437
+        ],
+        "vendor/": true,
+    }
+}
