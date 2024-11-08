@@ -1,0 +1,10 @@
+{
+    "site_url": "http://localhost:8082/",
+
+    "base_url": "http://localhost/padanginvitation",
+    "index_page": "index.php",
+
+    "database_name": "dazelinv_invitation",
+    "database_user": "root",
+    "database_password": ""
+}

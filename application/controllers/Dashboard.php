@@ -17,6 +17,8 @@ class Dashboard extends CI_Controller {
         $data['title'] = 'Dashboard | Padang Invitation';
         // Ambil slug dari session
         $user_slug = $this->session->userdata('user_slug');
+        $data['slug'] = $user_slug;
+        $data['site_url'] = get_json_config('site_url');
         
         // Ambil data summary
         $data['total_views'] = $this->Dashboard_model->get_total_views($user_slug);

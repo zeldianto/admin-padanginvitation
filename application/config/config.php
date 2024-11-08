@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$filePath = FCPATH . 'config.json';
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,8 +25,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/padanginvitation';
-
+// $config['base_url'] = 'http://localhost/padanginvitation';
+if (file_exists($filePath)) {
+    $json = file_get_contents($filePath);
+    $configData = json_decode($json, true);
+    $config['base_url'] = isset($configData['base_url']) ? $configData['base_url'] : '';
+} else {
+    $config['base_url'] = 'https://padanginvitation.com';
+}
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -35,8 +43,14 @@ $config['base_url'] = 'http://localhost/padanginvitation';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
-
+// $config['index_page'] = 'index.php';
+if (file_exists($filePath)) {
+    $json = file_get_contents($filePath);
+    $configData = json_decode($json, true);
+    $config['index_page'] = isset($configData['index_page']) ? $configData['index_page'] : '';
+} else {
+    $config['index_page'] = 'https://padanginvitation.com';
+}
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL

@@ -17,6 +17,7 @@ class Guestbook extends CI_Controller
 
     public function index()
     {
+        $data['site_url'] = get_json_config('site_url');
         $data['title'] = 'Buku Tamu | Padang Invitation';
         // Load the pagination library
         $this->load->library('pagination');

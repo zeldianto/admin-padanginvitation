@@ -22,7 +22,7 @@
                 </button>
                 <!-- Dropdown Menu -->
                 <div id="menuDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
-                    <a href="" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Buka Undangan</a>
+                    <a href="<?php echo $site_url; ?><?php echo $slug; ?>" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Buka Undangan</a>
                     <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Testimoni</a>
                     <a href="<?php echo site_url('auth/logout'); ?>"
                         class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>

@@ -60,7 +60,7 @@
                             <td class="py-2 px-4 border-b">
                                 <div class="flex gap-2">
                                     <?php
-                                        $url = "http://localhost:8082/{$guest->slug}?guest={$guest->id}";
+                                        $url = "$site_url{$guest->slug}?guest={$guest->id}";
                                     ?>
                                     <!-- Button open link new tab -->
                                     <button onclick="window.open('<?php echo $url; ?>', '_blank')"
