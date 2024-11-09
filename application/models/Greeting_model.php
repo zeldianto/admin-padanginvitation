@@ -5,6 +5,7 @@ class Greeting_model extends CI_Model
 {
     public function get_all_greeting($limit, $offset)
     {
+        $this->db->where('slug', $this->session->userdata('user_slug'));
         $this->db->order_by('created_at', 'DESC');
         $this->db->limit($limit, $offset);
         return $this->db->get('tbl_gretting')->result();
@@ -12,7 +13,8 @@ class Greeting_model extends CI_Model
 
     public function count_all_greeting()
     {
-        return $this->db->count_all('tbl_gretting');
+        $this->db->where('slug', $this->session->userdata('user_slug'));
+        return $this->db->count_all_results('tbl_gretting');
     }
 
     public function get_greeting_by_id($id)

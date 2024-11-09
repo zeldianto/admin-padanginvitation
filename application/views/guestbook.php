@@ -54,10 +54,10 @@
                     <?php $no = $page + 1; ?>
                     <?php foreach ($guests as $guest): ?>
                         <tr class="hover:bg-gray-50">
-                            <td class="py-2 px-4 border-b"><?php echo $no++; ?></td>
-                            <td class="py-2 px-4 border-b"><?php echo $guest->name; ?></td>
-                            <td class="py-2 px-4 border-b"><?php echo $guest->phone ? $guest->phone : '-'; ?></td>
-                            <td class="py-2 px-4 border-b">
+                            <td class="py-2 px-4 border-b align-top"><?php echo $no++; ?></td>
+                            <td class="py-2 px-4 border-b align-top"><?php echo $guest->name; ?></td>
+                            <td class="py-2 px-4 border-b align-top"><?php echo $guest->phone ? $guest->phone : '-'; ?></td>
+                            <td class="py-2 px-4 border-b align-top">
                                 <div class="flex gap-2">
                                     <?php
                                         $url = "$site_url{$guest->slug}?guest={$guest->id}";

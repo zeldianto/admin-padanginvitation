@@ -73,7 +73,7 @@ class Rsvp extends CI_Controller
         $data['total_attending_guests'] = $this->Rsvp_model->get_total_attending_guests($user_slug);
         $data['total_not_attending_guests'] = $this->Rsvp_model->get_total_not_attending_guests($user_slug);
         $data['total_not_confirm'] = $this->Rsvp_model->get_total_not_confirm($user_slug);
-        // var_dump($data);
+        // var_dump($data['total_not_confirm']);
         // Load view
         $this->load->view('rsvp', $data);
     }

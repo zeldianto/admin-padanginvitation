@@ -5,6 +5,7 @@ class Rsvp_model extends CI_Model
 {
     public function get_all_rsvp($limit, $offset)
     {
+        $this->db->where('slug', $this->session->userdata('user_slug'));
         $this->db->where('confirm !=', "");
         $this->db->where('confirm IS NOT NULL');
         $this->db->order_by('created_at', 'DESC');
@@ -14,6 +15,7 @@ class Rsvp_model extends CI_Model
 
     public function count_all_rsvp()
     {
+        $this->db->where('slug', $this->session->userdata('user_slug'));
         $this->db->where('confirm !=', "");
         $this->db->where('confirm IS NOT NULL');
         return $this->db->count_all_results('tbl_guest');
@@ -35,9 +37,9 @@ class Rsvp_model extends CI_Model
 
     public function get_total_not_confirm($slug)
     {
-        $this->db->where('slug', $slug);
         $this->db->where('confirm', "");
         $this->db->or_where('confirm IS NULL');
+        $this->db->where('slug', $this->session->userdata('user_slug'));
         return $this->db->count_all_results('tbl_guest');
     }
 
