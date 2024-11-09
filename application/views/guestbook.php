@@ -19,26 +19,28 @@
             <h1 class="text-2xl font-bold">Buku Tamu</h1>
         </div>
     </div>
-    <div class="flex justify-end pb-2 items-center gap-2">
-        <button class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" />
-            </svg>
-
-            <span>Download</span>
-        </button>
-        <button onclick="openModal()"
-            class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
-            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 12h14m-7 7V5" />
-            </svg>
-            <span>Tamu</span>
-        </button>
+    <div class="flex flex-wrap justify-end items-center pb-2 gap-2 w-full">
+        <div class="flex items-center gap-2">
+            <button class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" />
+                </svg>
+                <span class="hidden sm:inline">Download</span>
+            </button>
+            <button onclick="openModal()"
+                class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
+                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h14m-7 7V5" />
+                </svg>
+                <span class="hidden sm:inline">Tamu</span>
+            </button>
+        </div>
     </div>
+
     <div class="overflow-x-auto">
         <table class="w-full bg-white border rounded-lg overflow-hidden">
             <thead>
@@ -60,7 +62,7 @@
                             <td class="py-2 px-4 border-b align-top">
                                 <div class="flex gap-2">
                                     <?php
-                                        $url = "$site_url{$guest->slug}?guest={$guest->id}";
+                                    $url = "$site_url{$guest->slug}?guest={$guest->id}";
                                     ?>
                                     <!-- Button open link new tab -->
                                     <button onclick="window.open('<?php echo $url; ?>', '_blank')"
@@ -73,7 +75,8 @@
                                         </svg>
                                     </button>
                                     <!-- Button copy link to clipboard -->
-                                    <button onclick="navigator.clipboard.writeText('<?php echo $url; ?>'); alert('Link disalin ke clipboard!');"
+                                    <button
+                                        onclick="navigator.clipboard.writeText('<?php echo $url; ?>'); alert('Link disalin ke clipboard!');"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -83,7 +86,8 @@
                                         </svg>
                                     </button>
                                     <!-- Button share link to facebook -->
-                                    <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($url); ?>', '_blank')"
+                                    <button
+                                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($url); ?>', '_blank')"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#3B82F6"
@@ -94,7 +98,8 @@
                                         </svg>
                                     </button>
                                     <!-- Button share link to whatsapp -->
-                                    <button onclick="window.open('https://wa.me/?text=<?php echo urlencode($url); ?>', '_blank')"
+                                    <button
+                                        onclick="window.open('https://wa.me/?text=<?php echo urlencode($url); ?>', '_blank')"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -129,12 +134,12 @@
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nama</label>
                     <input type="text" name="name" id="name" required
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        class="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline sm:text-sm">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Telepon</label>
                     <input type="text" name="phone" id="phone"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        class="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline sm:text-sm">
                 </div>
                 <div class="flex justify-end gap-2">
                     <button type="button" onclick="closeModal()"

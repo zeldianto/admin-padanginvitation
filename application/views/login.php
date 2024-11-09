@@ -17,13 +17,12 @@
                 <form action="<?php echo base_url('index.php/auth/login'); ?>" method="post">
                     <div class="mb-4">
                         <input type="text" name="access" id="access"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline sm:text-sm"
                             maxlength="6" placeholder="6 Digit Access" required>
                     </div>
                     <button type="submit"
                         class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Login</button>
                 </form>
-
             </div>
         </div>
     </div>

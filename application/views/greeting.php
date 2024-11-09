@@ -130,7 +130,7 @@
                     <label id="labelBalasan" class="block text-gray-700 text-sm font-bold mb-2" for="name">Pesan
                         Balasan</label>
                     <textarea name="message" id="message" rows="4"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                        class="block w-full px-2 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline sm:text-sm"></textarea>
                 </div>
                 <div class="flex justify-end gap-2">
                     <button type="button" onclick="closeModal()"
