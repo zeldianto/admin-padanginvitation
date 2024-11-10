@@ -32,7 +32,7 @@
                             </svg>
                             Buka Undangan
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 gap-2 text-gray-700 hover:bg-gray-100">
+                        <a href="<?php echo site_url('testimoni'); ?>" class="flex items-center px-4 py-2 gap-2 text-gray-700 hover:bg-gray-100">
                             <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="grey" stroke-width="2"

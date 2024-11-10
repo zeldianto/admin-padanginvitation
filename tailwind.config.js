@@ -4,7 +4,11 @@ module.exports = {
     "./application/views/**/*.php"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['"Rethink Sans"', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
