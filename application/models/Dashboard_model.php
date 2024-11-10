@@ -29,5 +29,10 @@ class Dashboard_model extends CI_Model
         $this->db->where('confirm', 'HADIR');
         return $this->db->count_all_results('tbl_guest');
     }
+
+    public function get_total_order()
+    {
+        return $this->db->count_all_results('tbl_order');
+    }
 }
 ?>

@@ -16,7 +16,7 @@
             </a>
         </div>
         <div>
-            <h1 class="text-2xl font-bold">Order</h1>
+            <h1 class="text-2xl font-bold">Template Whatsapp</h1>
         </div>
     </div>
     <div class="flex justify-end pb-2 items-center gap-2">
@@ -27,7 +27,7 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M5 12h14m-7 7V5" />
             </svg>
-            <span>Order</span>
+            <span>Template</span>
         </button>
     </div>
     <div class="overflow-x-auto">
@@ -35,32 +35,44 @@
             <thead>
                 <tr class="bg-pink-600 text-white text-left">
                     <th class="py-2 px-4 border-b text-left" style="width:15px">No</th>
-                    <th class="py-2 px-4 border-b text-left">Nama</th>
-                    <th class="py-2 px-4 border-b text-left">Tanggal</th>
-                    <th class="py-2 px-4 border-b text-left">Url</th>
-                    <th class="py-2 px-4 border-b text-left">Akses</th>
+                    <th class="py-2 px-4 border-b text-left">Judul</th>
+                    <th class="py-2 px-4 border-b text-left">Konten</th>
+                    <th class="py-2 px-4 border-b text-left">Status</th>
+                    <th class="py-2 px-4 border-b text-left"></th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($greeting)): ?>
-                    <?php $no = $page + 1; ?>
-                    <?php foreach ($greeting as $data): ?>
+                <?php if (!empty($template)): ?>
+                    <?php $no = 1; ?>
+                    <?php foreach ($template as $data): ?>
                         <tr class="hover:bg-gray-50">
                             <td class="py-2 px-4 border-b align-top"><?php echo $no++; ?></td>
-                            <td class="py-2 px-4 border-b align-top whitespace-nowrap"><?php echo $data->name; ?></td>
-                            <td class="py-2 px-4 border-b align-top whitespace-nowrap"><?php echo $data->date; ?></td>
+                            <td class="py-2 px-4 border-b align-top whitespace-nowrap"><?php echo $data->title; ?></td>
                             <td class="py-2 px-4 border-b align-top">
-                                <a href="<?php echo $site_url ?><?php echo $data->slug; ?>" target="_blank" class="flex items-center gap-1 whitespace-nowrap text-blue-500">
-                                    <svg class="w-4 h-4 text-blue-500 dark:text-white" aria-hidden="true"
+                                <?php echo strlen($data->content) > 20 ? substr($data->content, 0, 20) . '...' : $data->content; ?>
+                            </td>
+                            <td class="py-2 px-4 border-b align-top">
+                                <?php if ($data->status == 1): ?>
+                                    <span
+                                        class="inline-block px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded-full">Aktif</span>
+                                <?php else: ?>
+                                    <span
+                                        class="inline-block px-2 py-1 text-xs font-semibold text-white bg-gray-500 rounded-full">Nonaktif</span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="py-2 px-4 border-b align-top">
+                                <a href=""
+                                    class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                         viewBox="0 0 24 24">
-                                        <path stroke="#3980EE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
+                                        <path stroke="grey" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
                                     </svg>
-                                    <?php echo $data->slug; ?>
+
                                 </a>
                             </td>
-                            <td class="py-2 px-4 border-b align-top"><?php echo $data->access; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -70,9 +82,6 @@
                 <?php endif; ?>
             </tbody>
         </table>
-    </div>
-    <div class="mt-4">
-        <?php echo $pagination; ?>
     </div>
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">

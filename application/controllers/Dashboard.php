@@ -27,7 +27,7 @@ class Dashboard extends CI_Controller
 
         if ($user_role === 'ADMIN') {
             // untuk admin
-
+            $data['total_order'] = $this->Dashboard_model->get_total_order();
         } else if ($user_role === 'USER') {
             // untuk user
             $data['total_views'] = $this->Dashboard_model->get_total_views($user_slug);

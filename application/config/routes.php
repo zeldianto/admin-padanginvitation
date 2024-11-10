@@ -57,3 +57,5 @@ $route['login'] = 'auth/index';
 $route['auth/login'] = 'auth/login';
 $route['dashboard'] = 'dashboard/index';
 $route['greeting/update_status/(:num)'] = 'greeting/update_status/$1';
+
+$route['template-whatsapp'] = 'TemplateWhatsapp/index';
