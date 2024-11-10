@@ -69,8 +69,16 @@
                             </div>
                             <!-- Pesan keluar -->
                             <div class="flex justify-end">
-                                <div class="bg-green-100 border border-gray-200 p-3 rounded-lg shadow-sm max-w-xs">
-                                    <p class="text-sm" id="chatContent">
+                                <div class="bg-green-100 border border-gray-200 rounded-lg shadow-sm max-w-sm">
+                                <div class="bg-green-500 flex gap-1 items-center rounded-t-lg">
+                                    <img class="rounded-tl-lg" src="https://placehold.jp/12/233C74/ffffff/100x100.png?text=Sample" alt="">    
+                                    <div class="p-2">
+                                        <h2 class="font-medium">Hello, We Are Getting Married</h2>
+                                        <p style="font-size:10px">We are getting married, online invitation by Padang Invitation</p>
+                                        <p style="font-size:10px; color:#6b7280">https://padanginvitation.com/andika-rima</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm p-3" id="chatContent">
                                         <!-- tampilkan disini.. -->
                                     </p>
                                 </div>

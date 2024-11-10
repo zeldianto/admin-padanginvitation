@@ -9,6 +9,17 @@ class Guestbook_model extends CI_Model
         $this->db->limit($limit, $offset);
         return $this->db->get('tbl_guest')->result();
     }
+
+    public function get_setting_by_slug()
+    {
+        $this->db->select('tbl_template_whatsapp.content');
+        $this->db->from('tbl_order');
+        $this->db->join('tbl_template_whatsapp', 'tbl_order.template_whatsapp = tbl_template_whatsapp.id');
+        $this->db->where('tbl_order.slug', $this->session->userdata('user_slug'));
+        $this->db->limit(1);
+
+        return $this->db->get()->row_array();
+    }
     
     public function count_all_guests() {
         $this->db->where('slug', $this->session->userdata('user_slug'));

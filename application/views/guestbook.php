@@ -63,6 +63,8 @@
                                 <div class="flex gap-2">
                                     <?php
                                     $url = "$site_url{$guest->slug}?guest={$guest->id}";
+                                    $shareText = str_replace(['{link}', '{nama-tamu}'], [$url, $guest->name], $content);
+                                    $encodedShareText = urlencode($shareText);
                                     ?>
                                     <!-- Button open link new tab -->
                                     <button onclick="window.open('<?php echo $url; ?>', '_blank')"
@@ -75,19 +77,28 @@
                                         </svg>
                                     </button>
                                     <!-- Button copy link to clipboard -->
-                                    <button
-                                        onclick="navigator.clipboard.writeText('<?php echo $url; ?>'); alert('Link disalin ke clipboard!');"
+                                    <button data-share-text="<?php echo htmlspecialchars($shareText); ?>"
+                                        class="copyButton w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="grey" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 4v3a1 1 0 0 1-1 1h-3m4 10v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2m11-3v10a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V7.87a1 1 0 0 1 .24-.65l2.46-2.87a1 1 0 0 1 .76-.35H18a1 1 0 0 1 1 1Z" />
+                                        </svg>
+                                    </button>
+                                    <!-- Button share -->
+                                    <button onclick="shareContent('<?php echo $encodedShareText; ?>')"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                             viewBox="0 0 24 24">
-                                            <path stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961" />
+                                            <path stroke="grey" stroke-linecap="round" stroke-width="2"
+                                                d="M7.926 10.898 15 7.727m-7.074 5.39L15 16.29M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z" />
                                         </svg>
                                     </button>
                                     <!-- Button share link to facebook -->
                                     <button
-                                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($url); ?>', '_blank')"
+                                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo $encodedShareText; ?>', '_blank')"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#3B82F6"
@@ -99,7 +110,7 @@
                                     </button>
                                     <!-- Button share link to whatsapp -->
                                     <button
-                                        onclick="window.open('https://wa.me/?text=<?php echo urlencode($url); ?>', '_blank')"
+                                        onclick="window.open('https://wa.me/?text=<?php echo $encodedShareText; ?>', '_blank')"
                                         class="w-6 h-6 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center">
                                         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

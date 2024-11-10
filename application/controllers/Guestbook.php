@@ -67,6 +67,10 @@ class Guestbook extends CI_Controller
         $data['guests'] = $this->Guestbook_model->get_all_guests($config['per_page'], $page);
         $data['pagination'] = $this->pagination->create_links();
 
+        $templateByOrder = $this->Guestbook_model->get_setting_by_slug();
+        $data['content'] = $templateByOrder ? $templateByOrder['content'] : '';
+        // var_dump($data['content']);
+
         // Load view
         $this->load->view('guestbook', $data);
     }
