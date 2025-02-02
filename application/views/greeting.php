@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="flex justify-end pb-2 items-center gap-2">
-        <button class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
+        <!-- <button class="bg-blue-500 font-bold text-white py-2 px-3 rounded-lg flex items-center space-x-2">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +28,7 @@
             </svg>
 
             <span>Download</span>
-        </button>
+        </button> -->
     </div>
     <div class="overflow-x-auto">
         <table class="w-full bg-white border rounded-lg overflow-hidden">
